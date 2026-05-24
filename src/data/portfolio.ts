@@ -145,6 +145,18 @@ export const interests: Interest[] = [
     items: ['FC Barcelona', 'Messi', 'Neymar', 'Kaka', 'Pedri', 'Yamal'],
   },
   {
+    title: 'Games',
+    items: [
+      'Minecraft',
+      'Valorant',
+      'Assassins Creed',
+      'Forza Horizon',
+      'Ghost Of Tsushima',
+      'Efootball',
+      'FIFA (Not FC)',
+    ],
+  },
+  {
     title: 'Bikes',
     groups: [
       { label: 'Have', items: ['Royal Enfield Intercepter 650'] },
@@ -163,19 +175,10 @@ export const interests: Interest[] = [
     title: 'Cars',
     groups: [
       { label: 'Have', items: ['Suzuki Swift Type 1'] },
-      { label: 'Dream garage', items: ['Swift', 'Mercedes-Benz', 'Porsche'] },
-    ],
-  },
-  {
-    title: 'Games',
-    items: [
-      'Minecraft',
-      'Valorant',
-      'Assassins Creed',
-      'Forza Horizon',
-      'Ghost Of Tsushima',
-      'Efootball',
-      'FIFA (Not FC)',
+      {
+        label: 'Dream garage',
+        items: ['Mercedes-Benz GLS', 'Porsche 911', 'Suzuki Swift Type 1'],
+      },
     ],
   },
 ];
