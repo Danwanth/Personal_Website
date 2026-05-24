@@ -36,7 +36,7 @@ export function ProfileCard() {
                 }}
                 className="relative z-10 h-full w-full object-cover"
               />
-              <div className="absolute inset-0 z-20 bg-gradient-to-t from-black/55 via-transparent to-black/15" />
+              {/* <div className="absolute inset-0 z-20 bg-gradient-to-t from-black/55 via-transparent to-black/15" />
               <div className="absolute left-5 top-5 z-30 grid h-14 w-14 place-items-center rounded-2xl border border-volt/45 bg-black/40 text-lg font-black text-volt shadow-lime-glow backdrop-blur-md">
                 DY
               </div>
@@ -49,7 +49,7 @@ export function ProfileCard() {
                 </p>
               </div>
             </div>
-          </div>
+          </div> */}
 
           <div className="mt-6">
             <p className="text-sm font-semibold uppercase tracking-[0.28em] text-ember">
