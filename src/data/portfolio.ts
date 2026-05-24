@@ -82,6 +82,7 @@ export const skills: Skill[] = [
   { name: 'Scikit-learn', icon: BrainCircuit },
   { name: 'Supabase', icon: Database },
   { name: 'REST APIs', icon: Rocket },
+  { name: 'XAMPP', icon: Server },
 ];
 
 export const projects: Project[] = [
