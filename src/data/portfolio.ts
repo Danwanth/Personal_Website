@@ -68,7 +68,7 @@ export const navItems: NavItem[] = [
 
 export const socials: SocialLink[] = [
   { label: 'GitHub', href: 'https://github.com/Danwanth', icon: Github },
-  { label: 'LinkedIn', href: 'https://linkedin.com/in/danwanth-yogesh', icon: Linkedin },
+  { label: 'LinkedIn', href: 'https://linkedin.com/in/danwanth/', icon: Linkedin },
   { label: 'Instagram', href: 'https://www.instagram.com/danwanth/', icon: Instagram },
 ];
 
