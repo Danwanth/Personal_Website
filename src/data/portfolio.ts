@@ -118,12 +118,12 @@ export const stats: Stat[] = [
 
 export const experienceHighlights = [
   {
-    title: 'AI/ML Intern, Simelabs',
+    title: 'AI/ML Intern, Simelabs, 2026',
     description:
       'Currently building machine learning models with practical data workflows, evaluation, and production-minded implementation.',
   },
   {
-    title: 'Intern, Digispoc',
+    title: 'Intern, Digispoc, 2024',
     description:
       'Worked on software development tasks in a professional internship environment, strengthening delivery, collaboration, and product thinking.',
   },
