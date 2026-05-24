@@ -48,8 +48,8 @@ export function ProfileCard() {
                   AI systems, full-stack builds, scalable apps.
                 </p>
               </div>
-            </div>
-          </div> */}
+            </div>*/}
+          </div> 
 
           <div className="mt-6">
             <p className="text-sm font-semibold uppercase tracking-[0.28em] text-ember">
