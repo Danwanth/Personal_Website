@@ -16,7 +16,7 @@ export function Contact() {
             target="_blank"
             rel="noreferrer"
             className="mt-7 inline-flex items-center gap-2 rounded-full bg-volt px-6 py-3 text-sm font-black text-black transition duration-300 hover:-translate-y-1 hover:bg-white"
-          >s
+          >
             <Linkedin size={18} />
             Connect on LinkedIn
           </a>
