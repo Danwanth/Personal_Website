@@ -27,7 +27,7 @@ export function ProfileCard() {
                 <span className="text-6xl font-black text-white/10">DY</span>
               </div>
               <img
-                src="/profile-photo.png"
+                src="/profile-photo.png?v=20260524-1554"
                 alt="Danwanth Yogesh"
                 onError={(event) => {
                   event.currentTarget.style.opacity = '0';
