@@ -12,6 +12,7 @@ export function ProfileCard() {
     >
       <div className="absolute -right-10 -top-10 h-36 w-36 rounded-full border border-volt/30" />
       <div className="absolute bottom-24 right-8 h-8 w-8 rotate-45 border border-ember/70" />
+
       <motion.div
         className="absolute left-8 top-16 h-5 w-5 rounded-full bg-volt"
         animate={{ y: [0, 14, 0], opacity: [0.9, 0.45, 0.9] }}
@@ -22,10 +23,14 @@ export function ProfileCard() {
         <div>
           <div className="relative overflow-hidden rounded-[1.65rem] bg-graphite">
             <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_20%,rgba(199,255,47,0.14),transparent_35%),radial-gradient(circle_at_80%_15%,rgba(249,109,55,0.22),transparent_35%)]" />
+
             <div className="relative aspect-square">
               <div className="absolute inset-0 z-0 grid place-items-center bg-gradient-to-br from-[#161616] via-black to-[#252015]">
-                <span className="text-6xl font-black text-white/10">DY</span>
+                <span className="text-6xl font-black text-white/10">
+                  DY
+                </span>
               </div>
+
               <img
                 src="/profile-photo.png?v=20260524-1609"
                 alt="Danwanth Yogesh"
@@ -36,31 +41,23 @@ export function ProfileCard() {
                 }}
                 className="relative z-10 h-full w-full object-cover"
               />
-              {/* <div className="absolute inset-0 z-20 bg-gradient-to-t from-black/55 via-transparent to-black/15" />
-              <div className="absolute left-5 top-5 z-30 grid h-14 w-14 place-items-center rounded-2xl border border-volt/45 bg-black/40 text-lg font-black text-volt shadow-lime-glow backdrop-blur-md">
-                DY
-              </div>
-              <div className="absolute bottom-5 left-5 right-5 z-30 rounded-3xl border border-white/10 bg-black/45 p-4 backdrop-blur-xl">
-                <p className="text-xs font-bold uppercase tracking-[0.24em] text-volt">
-                  Focus
-                </p>
-                <p className="mt-2 text-sm font-semibold leading-6 text-white/76">
-                  AI systems, full-stack builds, scalable apps.
-                </p>
-              </div>
-            </div>*/}
-          </div> 
+
+              {/* Removed overlay focus card */}
+            </div>
+          </div>
 
           <div className="mt-6">
             <p className="text-sm font-semibold uppercase tracking-[0.28em] text-ember">
               AI/ML Engineer
             </p>
+
             <h1 className="mt-3 font-display text-4xl font-black tracking-normal text-white sm:text-5xl">
               Danwanth Yogesh
             </h1>
+
             <p className="mt-4 max-w-sm text-sm leading-7 text-white/60">
-              Computer Science undergraduate building intelligent applications, scalable
-              systems, and polished digital experiences.
+              Computer Science undergraduate building intelligent applications,
+              scalable systems, and polished digital experiences.
             </p>
           </div>
 
