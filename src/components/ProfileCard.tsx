@@ -23,22 +23,24 @@ export function ProfileCard() {
           <div className="relative overflow-hidden rounded-[1.65rem] bg-graphite">
             <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_20%,rgba(199,255,47,0.14),transparent_35%),radial-gradient(circle_at_80%_15%,rgba(249,109,55,0.22),transparent_35%)]" />
             <div className="relative aspect-square">
-              <div className="absolute inset-0 grid place-items-center bg-gradient-to-br from-[#161616] via-black to-[#252015]">
+              <div className="absolute inset-0 z-0 grid place-items-center bg-gradient-to-br from-[#161616] via-black to-[#252015]">
                 <span className="text-6xl font-black text-white/10">DY</span>
               </div>
               <img
                 src="/profile-photo.png?v=20260524-1554"
                 alt="Danwanth Yogesh"
+                loading="eager"
+                decoding="async"
                 onError={(event) => {
                   event.currentTarget.style.opacity = '0';
                 }}
-                className="h-full w-full object-cover"
+                className="relative z-10 h-full w-full object-cover"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/55 via-transparent to-black/15" />
-              <div className="absolute left-5 top-5 grid h-14 w-14 place-items-center rounded-2xl border border-volt/45 bg-black/40 text-lg font-black text-volt shadow-lime-glow backdrop-blur-md">
+              <div className="absolute inset-0 z-20 bg-gradient-to-t from-black/55 via-transparent to-black/15" />
+              <div className="absolute left-5 top-5 z-30 grid h-14 w-14 place-items-center rounded-2xl border border-volt/45 bg-black/40 text-lg font-black text-volt shadow-lime-glow backdrop-blur-md">
                 DY
               </div>
-              <div className="absolute bottom-5 left-5 right-5 rounded-3xl border border-white/10 bg-black/45 p-4 backdrop-blur-xl">
+              <div className="absolute bottom-5 left-5 right-5 z-30 rounded-3xl border border-white/10 bg-black/45 p-4 backdrop-blur-xl">
                 <p className="text-xs font-bold uppercase tracking-[0.24em] text-volt">
                   Focus
                 </p>

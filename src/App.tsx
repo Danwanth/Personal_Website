@@ -1,7 +1,6 @@
 import { AnimatePresence, motion } from 'framer-motion';
 import { useEffect, useState } from 'react';
 import { BackgroundFX } from './components/BackgroundFX';
-import { CursorGlow } from './components/CursorGlow';
 import { Footer } from './components/Footer';
 import { Loader } from './components/Loader';
 import { Navbar } from './components/Navbar';
@@ -26,7 +25,6 @@ export default function App() {
   return (
     <div className="min-h-screen overflow-x-hidden bg-ink text-white selection:bg-volt selection:text-black">
       <BackgroundFX />
-      <CursorGlow />
       <AnimatePresence mode="wait">
         {isLoading ? (
           <Loader key="loader" />
