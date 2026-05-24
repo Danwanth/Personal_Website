@@ -27,7 +27,7 @@ export function ProfileCard() {
                 <span className="text-6xl font-black text-white/10">DY</span>
               </div>
               <img
-                src="/profile-photo.png?v=20260524-1554"
+                src="/profile-photo.png?v=20260524-1609"
                 alt="Danwanth Yogesh"
                 loading="eager"
                 decoding="async"
