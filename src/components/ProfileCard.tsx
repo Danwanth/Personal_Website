@@ -93,20 +93,13 @@ export function ProfileCard() {
             ))}
           </div>
 
-          <div className="mt-5 grid grid-cols-[1fr_auto] gap-3">
+          <div className="mt-5">
             <a
               href="/Danwanth%20Yogesh%20Resume.pdf"
               download
-              className="inline-flex items-center justify-center gap-2 rounded-full bg-ember px-5 py-3 text-sm font-bold text-white shadow-glow transition duration-300 hover:-translate-y-0.5 hover:bg-white hover:text-black"
+              className="inline-flex w-full items-center justify-center gap-2 rounded-full bg-ember px-5 py-3 text-sm font-bold text-white shadow-glow transition duration-300 hover:-translate-y-0.5 hover:bg-white hover:text-black"
             >
               Download Resume
-              <Download size={18} />
-            </a>
-            <a
-              href="#projects"
-              aria-label="View projects"
-              className="grid h-12 w-12 place-items-center rounded-full border border-white/10 bg-white/[0.05] text-white/70 transition duration-300 hover:border-white/25 hover:text-white"
-            >
               <Download size={18} />
             </a>
           </div>

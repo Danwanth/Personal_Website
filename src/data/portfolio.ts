@@ -41,6 +41,21 @@ export type Stat = {
   label: string;
 };
 
+export type Interest =
+  | {
+      title: string;
+      items: string[];
+      groups?: never;
+    }
+  | {
+      title: string;
+      groups: Array<{
+        label: string;
+        items: string[];
+      }>;
+      items?: never;
+    };
+
 export const navItems: NavItem[] = [
   { label: 'Home', href: '#home' },
   { label: 'About', href: '#about' },
@@ -124,10 +139,32 @@ export const gamertags = [
   { platform: 'Efootball', tag: '' },
 ];
 
-export const interests = [
+export const interests: Interest[] = [
   {
     title: 'Football',
     items: ['FC Barcelona', 'Messi', 'Neymar', 'Kaka', 'Pedri', 'Yamal'],
+  },
+  {
+    title: 'Bikes',
+    groups: [
+      { label: 'Have', items: ['Royal Enfield Intercepter 650'] },
+      {
+        label: 'Dream garage',
+        items: [
+          'Ducati V4',
+          'Triumph Rocket 3 GT',
+          'Royal Enfield Interceptor',
+          'Honda Africa Twin',
+        ],
+      },
+    ],
+  },
+  {
+    title: 'Cars',
+    groups: [
+      { label: 'Have', items: ['Suzuki Swift Type 1'] },
+      { label: 'Dream garage', items: ['Swift', 'Mercedes-Benz', 'Porsche'] },
+    ],
   },
   {
     title: 'Games',
