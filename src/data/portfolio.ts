@@ -164,7 +164,7 @@ export const interests: Interest[] = [
       {
         label: 'Dream garage',
         items: [
-          'Ducati V4',
+          'Ducati Panigale V4',
           'Triumph Rocket 3 GT',
           'Royal Enfield Interceptor',
           'Honda Africa Twin',
