@@ -114,7 +114,7 @@ export const projects: Project[] = [
 export const stats: Stat[] = [
   { value: '09+', label: 'Core technologies' },
   { value: '03', label: 'Featured builds' },
-  { value: 'AI', label: 'Primary focus' },
+  { value: 'AI/ML & Data Science', label: 'Primary focus' },
 ];
 
 export const experienceHighlights = [
