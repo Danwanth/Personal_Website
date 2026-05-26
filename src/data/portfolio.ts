@@ -155,6 +155,7 @@ export const interests: Interest[] = [
       'Ghost Of Tsushima',
       'Efootball',
       'FIFA (Not FC)',
+      'Batman Arkham Series'
     ],
   },
   {
