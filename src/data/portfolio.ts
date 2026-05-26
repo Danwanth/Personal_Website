@@ -137,7 +137,7 @@ export const profileBadges = [
 export const gamertags = [
   { platform: 'Valorant', tag: 'Danwanth #sesky' },
   { platform: 'Xbox', tag: 'Danterminater' },
-  { platform: 'Efootball', tag: '' },
+  { platform: 'Efootball', tag: 'Danwanth' },
 ];
 
 export const interests: Interest[] = [
