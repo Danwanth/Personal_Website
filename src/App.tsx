@@ -1,3 +1,4 @@
+import { AchievementsUI } from './components/AchievementsUI'
 import { Contact } from './components/Contact'
 import { Footer } from './components/Footer'
 import { Header } from './components/Header'
@@ -24,6 +25,7 @@ export function App() {
         <Contact />
       </main>
       <Footer />
+      <AchievementsUI />
     </>
   )
 }

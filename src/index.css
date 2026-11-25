@@ -160,3 +160,61 @@
     text-decoration-color: var(--accent);
   }
 }
+
+/* Overlays: achievement toast, console, ball roll. Motion is switched off
+   under prefers-reduced-motion (the game itself is not affected). */
+@keyframes toast-in {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+@keyframes console-in {
+  from {
+    transform: translateY(-100%);
+  }
+  to {
+    transform: translateY(0);
+  }
+}
+@keyframes ball-roll {
+  from {
+    transform: translateX(-80px);
+  }
+  to {
+    transform: translateX(calc(100vw + 80px));
+  }
+}
+@keyframes ball-spin {
+  to {
+    transform: rotate(2520deg);
+  }
+}
+.toast {
+  animation: toast-in 220ms ease-out;
+}
+.console-panel {
+  animation: console-in 200ms ease-out;
+}
+.ball-roll {
+  animation: ball-roll 2.4s linear forwards;
+}
+.ball-roll > svg {
+  animation: ball-spin 2.4s linear forwards;
+}
+@media (prefers-reduced-motion: reduce) {
+  .toast,
+  .console-panel,
+  .ball-roll,
+  .ball-roll > svg {
+    animation: none;
+  }
+}
+
+dialog::backdrop {
+  background: color-mix(in srgb, var(--paper) 78%, transparent);
+}
