@@ -43,7 +43,7 @@ export function ProjectList() {
 
 export function Projects() {
   return (
-    <Section id="projects" number="03" label="Projects">
+    <Section id="projects" number="01" label="All projects">
       <ProjectList />
     </Section>
   )

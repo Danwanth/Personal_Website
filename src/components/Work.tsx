@@ -1,10 +1,7 @@
 import type { ReactNode } from 'react'
-import { work } from '../data/site'
+import { profile, work } from '../data/site'
+import { ExtLink } from './ExtLink'
 import { Section } from './Section'
-
-function Heading({ children }: { children: string }) {
-  return <h3 className="label mb-2 mt-14 font-normal first:mt-0">{children}</h3>
-}
 
 function Entry({
   date,
@@ -18,10 +15,10 @@ function Entry({
   children?: ReactNode
 }) {
   return (
-    <li className="border-t border-rule py-6 sm:grid sm:grid-cols-[9.5rem_minmax(0,1fr)] sm:gap-x-6">
+    <li className="border-t border-rule py-6 first:border-t-0 first:pt-0 sm:grid sm:grid-cols-[9.5rem_minmax(0,1fr)] sm:gap-x-6">
       <p className="font-mono text-xs text-muted sm:pt-1.5 sm:text-[0.8125rem]">{date}</p>
       <div className="mt-1 min-w-0 sm:mt-0">
-        <h4 className="font-semibold leading-snug">{title}</h4>
+        <h3 className="font-semibold leading-snug">{title}</h3>
         {sub && <p className="text-sm text-muted">{sub}</p>}
         {children}
       </div>
@@ -30,17 +27,10 @@ function Entry({
 }
 
 export function Work() {
-  const { about, experience, education, also } = work
+  const { experience, education, also } = work
   return (
-    <Section id="work" number="02" label="Work">
-      <div className="max-w-[68ch] space-y-5">
-        {about.map((p) => (
-          <p key={p}>{p}</p>
-        ))}
-      </div>
-
-      <div className="mt-14">
-        <Heading>Experience</Heading>
+    <>
+      <Section id="experience" number="01" label="Experience">
         <ol>
           {experience.map((job) => (
             <Entry
@@ -57,8 +47,9 @@ export function Work() {
             </Entry>
           ))}
         </ol>
+      </Section>
 
-        <Heading>Education</Heading>
+      <Section id="education" number="02" label="Education">
         <ol>
           <Entry
             date={education.date}
@@ -66,14 +57,21 @@ export function Work() {
             sub={education.detail}
           />
         </ol>
+      </Section>
 
-        <Heading>Also</Heading>
-        <ul className="border-t border-rule pt-6 text-muted">
+      <Section id="awards" number="03" label="Awards & certifications">
+        <ul className="space-y-2">
           {also.map((item) => (
             <li key={item}>{item}</li>
           ))}
         </ul>
-      </div>
-    </Section>
+      </Section>
+
+      <Section id="resume" number="04" label="Resume">
+        <p className="font-mono text-sm">
+          <ExtLink href={profile.resume}>Download resume (PDF)</ExtLink>
+        </p>
+      </Section>
+    </>
   )
 }

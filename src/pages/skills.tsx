@@ -1,4 +1,15 @@
-import { mountPage } from './mount'
 import { StartingXI } from '../components/StartingXI'
+import { PageHeader } from '../components/PageHeader'
+import { pageHeads } from '../data/site'
+import { mountPage } from './mount'
 
-mountPage(<StartingXI />, { current: 'skills' })
+function Page() {
+  return (
+    <>
+      <PageHeader {...pageHeads.skills} />
+      <StartingXI />
+    </>
+  )
+}
+
+mountPage(<Page />, { current: 'skills' })

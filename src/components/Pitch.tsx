@@ -24,7 +24,7 @@ export function Pitch({
   onSelect: (skill: string) => void
 }) {
   return (
-    <div className="relative mx-auto w-full max-w-[460px] lg:mx-0" style={{ aspectRatio: `${VB_W} / ${VB_H}` }}>
+    <div className="relative mx-auto w-full max-w-[520px] lg:mx-0" style={{ aspectRatio: `${VB_W} / ${VB_H}` }}>
       <svg
         viewBox={`-1 -1 ${VB_W} ${VB_H}`}
         className="absolute inset-0 h-full w-full text-rule"

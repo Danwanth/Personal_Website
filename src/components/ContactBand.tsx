@@ -39,9 +39,10 @@ function CopyButton({ text }: { text: string }) {
   )
 }
 
-export function Contact() {
+// Sits above the footer on every page.
+export function ContactBand() {
   return (
-    <Section id="contact" number="07" label="Contact">
+    <Section id="contact" label="Contact">
       <p className="max-w-[68ch]">{contact.line}</p>
       <p className="mt-5">
         <a

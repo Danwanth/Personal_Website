@@ -1,4 +1,15 @@
+import { About } from '../components/About'
+import { PageHeader } from '../components/PageHeader'
+import { pageHeads } from '../data/site'
 import { mountPage } from './mount'
-import { OffThePitch } from '../components/OffThePitch'
 
-mountPage(<OffThePitch />, { current: 'about' })
+function Page() {
+  return (
+    <>
+      <PageHeader {...pageHeads.about} />
+      <About />
+    </>
+  )
+}
+
+mountPage(<Page />, { current: 'about' })

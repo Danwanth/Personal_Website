@@ -1,4 +1,15 @@
-import { mountPage } from './mount'
 import { Work } from '../components/Work'
+import { PageHeader } from '../components/PageHeader'
+import { pageHeads } from '../data/site'
+import { mountPage } from './mount'
 
-mountPage(<Work />, { current: 'work' })
+function Page() {
+  return (
+    <>
+      <PageHeader {...pageHeads.work} />
+      <Work />
+    </>
+  )
+}
+
+mountPage(<Page />, { current: 'work' })

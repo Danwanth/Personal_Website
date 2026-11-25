@@ -72,10 +72,6 @@ export const hero = {
 } as const
 
 export const work = {
-  about: [
-    "I'm in my final year of B.Tech CSE at RSET (CGPA 8.56). I like the whole path from a messy dataset to something a person can actually click on: cleaning, modelling, evaluating, then building the app around it.",
-    'This summer at Simelabs I trained models on healthcare, retail and product-formulation data and built a RAG chatbot over the company website. Before that I won HackSUS with a carpooling app and spent a summer writing Flask apps at Digispoc.',
-  ],
   experience: [
     {
       role: 'AI/ML Intern',
@@ -112,6 +108,13 @@ export const work = {
     'NPTEL Python for Data Science (2025)',
     'NPTEL Cloud Computing (2026)',
     'Cyber Security Workshop, RSET (2025)',
+  ],
+} as const
+
+export const about = {
+  paragraphs: [
+    "I'm in my final year of B.Tech CSE at RSET (CGPA 8.56). I like the whole path from a messy dataset to something a person can actually click on: cleaning, modelling, evaluating, then building the app around it.",
+    'This summer at Simelabs I trained models on healthcare, retail and product-formulation data and built a RAG chatbot over the company website. Before that I won HackSUS with a carpooling app and spent a summer writing Flask apps at Digispoc.',
   ],
 } as const
 
@@ -241,8 +244,34 @@ export const skills = {
 } as const
 
 export const play = {
-  intro:
-    "Keepy-uppy. Click or tap the ball to kick it up, and don't let it hit the ground. Keyboard: focus the pitch and press Space when the ball is low.",
+  keyboard: 'Keyboard: focus the pitch and press Space when the ball is low.',
+} as const
+
+const numberWords = ['Zero', 'One', 'Two', 'Three', 'Four', 'Five', 'Six', 'Seven', 'Eight', 'Nine', 'Ten']
+
+// The mono label, big title and one-line intro at the top of every subpage.
+export const pageHeads = {
+  work: {
+    label: 'Work',
+    title: 'Work',
+    intro: 'Two internships, a hackathon win and a degree that wraps up in 2027.',
+  },
+  projects: {
+    label: 'Projects',
+    title: 'Projects',
+    intro: `${numberWords[projects.length] ?? projects.length} things I've built, from a real-time chat app to models that hit 97%.`,
+  },
+  skills: { label: 'Skills', title: 'Starting XI', intro: skills.intro },
+  play: {
+    label: 'Play',
+    title: 'Play',
+    intro: "Keepy-uppy. Click or tap the ball to keep it up, and don't let it hit the ground.",
+  },
+  about: {
+    label: 'About',
+    title: 'Off the pitch',
+    intro: "Barça, games and bikes: what I'm up to when I'm not training models.",
+  },
 } as const
 
 export const interests = {

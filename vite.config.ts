@@ -3,12 +3,20 @@ import { defineConfig, type Plugin } from 'vite'
 import react from '@vitejs/plugin-react'
 import tailwindcss from '@tailwindcss/vite'
 
+// Dev and preview only: serve /work as work/index.html, like Vercel's cleanUrls.
+const cleanUrls = (req: { url?: string }, _res: unknown, next: () => void) => {
+  if (req.url) req.url = req.url.replace(/^\/(work|projects|skills|play|about)(?=[?#]|$)/, '/$1/')
+  next()
+}
+
 // Injects the head boilerplate every page shares, so each HTML entry only
 // carries its own title, description, canonical and og:title/description/url.
 function sharedHead(): Plugin {
   const themeInit = readFileSync(new URL('./src/head/theme-init.js', import.meta.url), 'utf8')
   return {
     name: 'shared-head',
+    configureServer: (server) => void server.middlewares.use(cleanUrls),
+    configurePreviewServer: (server) => void server.middlewares.use(cleanUrls),
     transformIndexHtml() {
       return [
         // Runs first so the theme is set before anything paints.
@@ -41,6 +49,7 @@ function sharedHead(): Plugin {
 // Multi-page build: one HTML entry per page (clean URLs on Vercel) plus the
 // Offside 404 page.
 export default defineConfig({
+  appType: 'mpa', // real pages: /work serves work/index.html, unknown paths are not rewritten to the home page
   plugins: [sharedHead(), react(), tailwindcss()],
   build: {
     rollupOptions: {

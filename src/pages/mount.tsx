@@ -3,6 +3,7 @@ import { createRoot } from 'react-dom/client'
 import '../fonts'
 import '../index.css'
 import { AchievementsUI } from '../components/AchievementsUI'
+import { ContactBand } from '../components/ContactBand'
 import { Eggs } from '../components/Eggs'
 import { Footer } from '../components/Footer'
 import { Header } from '../components/Header'
@@ -22,6 +23,7 @@ export function mountPage(page: ReactNode, opts: { current?: PageKey } = {}): vo
       <AchievementsProvider>
         <Header current={opts.current} />
         <main id="main">{page}</main>
+        <ContactBand />
         <Footer />
         <AchievementsUI />
         <Eggs />
