@@ -5,6 +5,7 @@ import { Hero } from './components/Hero'
 import { OffThePitch } from './components/OffThePitch'
 import { Play } from './components/Play'
 import { Projects } from './components/Projects'
+import { StartingXI } from './components/StartingXI'
 import { Work } from './components/Work'
 
 // Section order: 01 Intro, 02 Work, 03 Projects, 04 Starting XI, 05 Play,
@@ -17,6 +18,7 @@ export function App() {
         <Hero />
         <Work />
         <Projects />
+        <StartingXI />
         <Play />
         <OffThePitch />
         <Contact />
