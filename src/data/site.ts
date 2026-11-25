@@ -249,6 +249,7 @@ export const achievementList: AchievementDef[] = [
 
 export const keepy = {
   idle: 'Click the ball to start',
+  idleTouch: 'Tap the ball to start',
   idleKeyboard: 'or focus this box and press Space',
   milestones: {
     1: "And we're off.",

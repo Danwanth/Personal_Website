@@ -11,6 +11,9 @@
   --rule: #d8d1c4;
   --accent: #a11d3a;
   --accent-ink: #ffffff;
+  /* The football is always a light ball with dark patches, whatever the theme. */
+  --ball-fill: #fbf9f4;
+  --ball-ink: #161513;
   color-scheme: light;
 }
 
@@ -21,6 +24,8 @@
   --rule: #2b2926;
   --accent: #e36a82;
   --accent-ink: #121110;
+  --ball-fill: #ece7dd;
+  --ball-ink: #121110;
   color-scheme: dark;
 }
 
@@ -32,6 +37,8 @@
   --rule: #8bac0f;
   --accent: #0f380f;
   --accent-ink: #9bbc0f;
+  --ball-fill: #9bbc0f;
+  --ball-ink: #0f380f;
 }
 
 @theme inline {

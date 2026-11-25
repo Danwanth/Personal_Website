@@ -5,13 +5,21 @@ export interface Palette {
   paper: string
   ink: string
   rule: string
+  ballFill: string
+  ballInk: string
 }
 
 /** Read the colour tokens from CSS. Call again after a theme or retro change. */
 export function readPalette(): Palette {
   const cs = getComputedStyle(document.documentElement)
   const v = (name: string, fallback: string) => cs.getPropertyValue(name).trim() || fallback
-  return { paper: v('--paper', '#f3efe6'), ink: v('--ink', '#161513'), rule: v('--rule', '#d8d1c4') }
+  return {
+    paper: v('--paper', '#f3efe6'),
+    ink: v('--ink', '#161513'),
+    rule: v('--rule', '#d8d1c4'),
+    ballFill: v('--ball-fill', '#fbf9f4'),
+    ballInk: v('--ball-ink', '#161513'),
+  }
 }
 
 function poly(ctx: CanvasRenderingContext2D, pts: [number, number][]) {
@@ -59,11 +67,12 @@ export function drawGame(ctx: CanvasRenderingContext2D, e: Engine, p: Palette) {
   ctx.fill()
   ctx.globalAlpha = 1
 
-  // The ball: paper fill, ink outline, ink pentagons clipped to the circle.
+  // The ball: light fill, dark outline and pentagons clipped to the circle
+  // (always a light ball with dark patches, so it reads as a football in dark mode too).
   ctx.save()
   ctx.translate(e.x, e.y)
   ctx.scale(r, r)
-  ctx.fillStyle = p.paper
+  ctx.fillStyle = p.ballFill
   ctx.beginPath()
   ctx.arc(0, 0, 1, 0, Math.PI * 2)
   ctx.fill()
@@ -72,15 +81,15 @@ export function drawGame(ctx: CanvasRenderingContext2D, e: Engine, p: Palette) {
   ctx.arc(0, 0, 1, 0, Math.PI * 2)
   ctx.clip()
   const s = ballShapes(e.angle)
-  ctx.fillStyle = p.ink
+  ctx.fillStyle = p.ballInk
   poly(ctx, s.centre)
   ctx.fill()
   for (const pent of s.edges) {
     poly(ctx, pent)
     ctx.fill()
   }
-  ctx.strokeStyle = p.ink
-  ctx.lineWidth = 0.07
+  ctx.strokeStyle = p.ballInk
+  ctx.lineWidth = 0.06
   ctx.beginPath()
   for (const [a, b] of s.seams) {
     ctx.moveTo(a[0], a[1])
@@ -88,7 +97,7 @@ export function drawGame(ctx: CanvasRenderingContext2D, e: Engine, p: Palette) {
   }
   ctx.stroke()
   ctx.restore()
-  ctx.strokeStyle = p.ink
+  ctx.strokeStyle = p.ballInk
   ctx.lineWidth = 0.09
   ctx.beginPath()
   ctx.arc(0, 0, 1, 0, Math.PI * 2)

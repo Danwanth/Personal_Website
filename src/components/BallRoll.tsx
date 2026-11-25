@@ -21,8 +21,8 @@ export function BallRoll({ onDone }: { onDone: () => void }) {
             <circle r="1" />
           </clipPath>
         </defs>
-        <circle r="1" fill="var(--paper)" />
-        <g clipPath="url(#ball-clip)" fill="var(--ink)" stroke="var(--ink)" strokeWidth="0.07">
+        <circle r="1" fill="var(--ball-fill)" />
+        <g clipPath="url(#ball-clip)" fill="var(--ball-ink)" stroke="var(--ball-ink)" strokeWidth="0.06">
           <polygon points={pts(s.centre)} stroke="none" />
           {s.edges.map((p, i) => (
             <polygon key={i} points={pts(p)} stroke="none" />
@@ -31,7 +31,7 @@ export function BallRoll({ onDone }: { onDone: () => void }) {
             <line key={i} x1={a[0]} y1={a[1]} x2={b[0]} y2={b[1]} fill="none" />
           ))}
         </g>
-        <circle r="1" fill="none" stroke="var(--ink)" strokeWidth="0.09" />
+        <circle r="1" fill="none" stroke="var(--ball-ink)" strokeWidth="0.09" />
       </svg>
     </div>
   )

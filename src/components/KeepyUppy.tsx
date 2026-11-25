@@ -219,7 +219,10 @@ export function KeepyUppy() {
         </div>
         {phase === 'idle' && (
           <div className="absolute inset-x-0 top-[34%] px-4 text-center">
-            <p className="font-mono text-sm">{keepy.idle}</p>
+            <p className="font-mono text-sm">
+              <span className="pointer-coarse:hidden">{keepy.idle}</span>
+              <span className="hidden pointer-coarse:inline">{keepy.idleTouch}</span>
+            </p>
             <p className="label mt-1 hidden sm:block">{keepy.idleKeyboard}</p>
           </div>
         )}
