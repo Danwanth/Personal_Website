@@ -284,3 +284,32 @@ html[data-retro] body::after {
 ::view-transition-new(site-header) {
   animation: none;
 }
+
+/* Key/value rows (player card): the label column is as wide as the longest
+   label, the value takes the rest. Stacks in retro mode, where text is wide. */
+.kv {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  column-gap: 1rem;
+  row-gap: 0.625rem;
+}
+.kv > div {
+  display: contents;
+}
+.kv dt {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  line-height: 1.5rem;
+  color: var(--muted);
+}
+html[data-retro] .kv {
+  grid-template-columns: minmax(0, 1fr);
+  row-gap: 0;
+}
+html[data-retro] .kv > div {
+  display: block;
+  margin-bottom: 0.75rem;
+}
+html[data-retro] .kv dd {
+  overflow-wrap: anywhere;
+}

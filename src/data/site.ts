@@ -8,6 +8,7 @@ export const profile = {
   linkedin: 'https://linkedin.com/in/danwanth/',
   instagram: 'https://www.instagram.com/danwanth/',
   resume: '/resume.pdf',
+  cgpa: '8.56',
   city: 'Kochi',
   location: 'Kochi, Kerala, India',
   timeZone: 'Asia/Kolkata',
@@ -44,6 +45,30 @@ export const hero = {
   lead: 'I build machine learning models and the software around them.',
   detail:
     'Final-year Computer Science student at Rajagiri School of Engineering and Technology, Kochi. Most recently an AI/ML intern at Simelabs. Open to AI/ML and software engineering roles.',
+  // The player-profile card. Its stats are derived in Hero from the data below
+  // (experience, projects, work.trophies, profile.cgpa).
+  card: {
+    season: 'Season 2026/27',
+    number: '10',
+    shortName: 'D. Yogesh',
+    role: 'AI/ML engineer · Kochi',
+    club: 'RSET, Kochi · B.Tech CSE ’27',
+    formerClubs: 'Simelabs ’26 · Digispoc ’24',
+    foot: 'Python',
+    status: 'Open to offers',
+    scouting: [
+      {
+        label: 'Strengths',
+        text: 'Takes a model from messy data to a working app: cleaning, modelling, evaluation, then the React or Flask app around it.',
+      },
+      {
+        label: 'Big games',
+        text: '97% accuracy on formulation quality at Simelabs (XGBoost). Won HackSUS with ReturnLoop.',
+      },
+      { label: 'Plays', text: 'Between ML and full-stack. Comfortable in Python, TypeScript and SQL.' },
+      { label: 'Watch out for', text: 'Will bring up Barça within five minutes.' },
+    ],
+  },
 } as const
 
 export const work = {
@@ -80,6 +105,8 @@ export const work = {
     date: '2023–2027 (expected)',
     detail: 'CGPA 8.56/10',
   },
+  /** Wins, for the Trophies stat on the player card. */
+  trophies: 1,
   also: [
     'Winner, HackSUS Hackathon (ReturnLoop)',
     'NPTEL Python for Data Science (2025)',
