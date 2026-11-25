@@ -8,7 +8,7 @@ export function Play() {
   const { unlocked, total } = useAchievements()
   return (
     <>
-      <Section id="keepy-uppy" number="01" label="Keepy-uppy">
+      <Section id="keepy-uppy" number="01" label="Keepy-uppy" compact>
         <KeepyUppy />
         <p className="mt-4 font-mono text-xs text-muted sm:text-[0.8125rem]">{play.keyboard}</p>
       </Section>

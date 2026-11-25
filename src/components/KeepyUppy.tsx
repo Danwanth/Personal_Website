@@ -205,7 +205,7 @@ export function KeepyUppy() {
   }
 
   return (
-    <div ref={wrapRef} id="game" className="relative h-80 w-full border border-rule sm:h-[380px] lg:h-[440px]">
+    <div ref={wrapRef} id="game" className="relative h-80 w-full border border-rule sm:h-[380px] lg:h-[400px]">
       <canvas
         ref={canvasRef}
         data-game-canvas

@@ -52,8 +52,9 @@ export const hero = {
     number: '10',
     shortName: 'D. Yogesh',
     role: 'AI/ML engineer · Kochi',
-    club: 'RSET, Kochi · B.Tech CSE ’27',
-    formerClubs: 'Simelabs ’26 · Digispoc ’24',
+    //   keeps a year on the same line as the name before it.
+    club: 'RSET, Kochi · B.Tech CSE ’27',
+    formerClubs: 'Simelabs ’26 · Digispoc ’24',
     foot: 'Python',
     status: 'Open to offers',
     scouting: [
