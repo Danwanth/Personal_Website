@@ -1,7 +1,7 @@
 import { useState, type ReactNode } from 'react'
 import { profile, work } from '../data/site'
 import { ExtLink } from './ExtLink'
-import { MediaGallery, MediaToggle, type MediaItem } from './MediaGallery'
+import { MediaGallery, MediaStack, type MediaItem } from './MediaGallery'
 import { Section } from './Section'
 
 function Entry({
@@ -9,12 +9,14 @@ function Entry({
   title,
   sub,
   media,
+  cover,
   children,
 }: {
   date: string
   title: string
   sub?: string
   media?: readonly MediaItem[]
+  cover?: string
   children?: ReactNode
 }) {
   const [open, setOpen] = useState(false)
@@ -24,7 +26,7 @@ function Entry({
       <div>
         <p className="font-mono text-xs text-muted sm:pt-1.5 sm:text-[0.8125rem]">{date}</p>
         {media && media.length > 0 && (
-          <MediaToggle id={galleryId} count={media.length} open={open} onToggle={() => setOpen((o) => !o)} />
+          <MediaStack id={galleryId} cover={cover} items={media} open={open} onToggle={() => setOpen((o) => !o)} />
         )}
       </div>
       <div className="mt-1 min-w-0 sm:mt-0">
@@ -50,6 +52,7 @@ export function Work() {
               title={`${job.role}, ${job.company}`}
               sub={job.place}
               media={'media' in job ? job.media : undefined}
+              cover={'cover' in job ? job.cover : undefined}
             >
               <ul className="mt-3 max-w-[68ch] list-disc space-y-2 pl-5 marker:text-muted">
                 {job.bullets.map((b) => (

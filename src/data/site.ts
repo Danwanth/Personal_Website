@@ -84,6 +84,35 @@ export const work = {
         'Built a RAG chatbot that indexes the company website in a vector database and answers questions through the Gemini API.',
         'Segmented customers by RFM with K-Means, hierarchical clustering and DBSCAN to find high-value and at-risk groups.',
       ],
+      // Photo stack beside the entry; `cover` is the photo on top of the stack.
+      cover: '/media/simelabs/entrance.jpg',
+      media: [
+        {
+          kind: 'image',
+          src: '/media/simelabs/id-card.jpg',
+          alt: 'Simelabs contractor ID card on a lanyard',
+          caption:
+            'My ID card for the Simelabs internship. Getting this meant I was part of the team, and for the first time I could freely explore Infopark (you can’t get in without one).',
+        },
+        {
+          kind: 'image',
+          src: '/media/simelabs/office.jpg',
+          alt: 'A laptop with code open on a desk in the Simelabs office',
+          caption: 'The office area at Simelabs. Really good atmosphere.',
+        },
+        {
+          kind: 'image',
+          src: '/media/simelabs/entrance.jpg',
+          alt: 'Danwanth standing next to the Simelabs sign at the office entrance',
+          caption: 'Photo at the entrance of the company.',
+        },
+        {
+          kind: 'image',
+          src: '/media/simelabs/desk.jpg',
+          alt: 'Wide view of a desk in the Simelabs office',
+          caption: '',
+        },
+      ],
     },
     {
       role: 'Software Development Intern',
@@ -94,7 +123,8 @@ export const work = {
         'Built Flask web apps on MySQL, including the schema and multi-user workflows.',
         'Optimised queries and set up Apache/XAMPP environments, which made testing more reliable.',
       ],
-      // Shown in a collapsed "Photos" gallery beside the entry. caption '' = no caption.
+      // Photo stack beside the entry; `cover` is the photo on top. caption '' = no caption.
+      cover: '/media/digispoc/metro.jpg',
       media: [
         {
           kind: 'image',
