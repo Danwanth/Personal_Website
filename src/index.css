@@ -1,0 +1,162 @@
+@import "tailwindcss";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+/* Colour tokens. Components use the Tailwind names (bg-paper, text-ink, ...)
+   or var(--paper) etc. Never hard-code hex values outside this file. */
+:root {
+  --paper: #f3efe6;
+  --ink: #161513;
+  --muted: #6b665e;
+  --rule: #d8d1c4;
+  --accent: #a11d3a;
+  --accent-ink: #ffffff;
+  color-scheme: light;
+}
+
+.dark {
+  --paper: #121110;
+  --ink: #ece7dd;
+  --muted: #9c968c;
+  --rule: #2b2926;
+  --accent: #e36a82;
+  --accent-ink: #121110;
+  color-scheme: dark;
+}
+
+/* Retro handheld-LCD palette (Konami). Must stay after .dark so it wins. */
+[data-retro] {
+  --paper: #9bbc0f;
+  --ink: #0f380f;
+  --muted: #306230;
+  --rule: #8bac0f;
+  --accent: #0f380f;
+  --accent-ink: #9bbc0f;
+}
+
+@theme inline {
+  --color-paper: var(--paper);
+  --color-ink: var(--ink);
+  --color-muted: var(--muted);
+  --color-rule: var(--rule);
+  --color-accent: var(--accent);
+  --color-accent-ink: var(--accent-ink);
+
+  --font-display: "Archivo Variable", "Archivo", "Arial Narrow", sans-serif;
+  --font-sans: "IBM Plex Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-mono: "IBM Plex Mono", ui-monospace, "SFMono-Regular", Menlo, Consolas, monospace;
+}
+
+@layer base {
+  html {
+    font-size: 16px;
+    -webkit-text-size-adjust: 100%;
+  }
+
+  body {
+    background: var(--paper);
+    color: var(--ink);
+    font-family: var(--font-sans);
+    font-size: 1rem;
+    line-height: 1.65;
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+  }
+
+  @media (min-width: 640px) {
+    body {
+      font-size: 1.0625rem;
+    }
+  }
+
+  ::selection {
+    background: var(--accent);
+    color: var(--accent-ink);
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 3px;
+  }
+
+  button {
+    font: inherit;
+    color: inherit;
+    cursor: pointer;
+  }
+}
+
+@layer components {
+  /* Page container: 20px gutters on mobile, 32px from sm up. */
+  .wrap {
+    margin-inline: auto;
+    width: 100%;
+    max-width: 72rem;
+    padding-inline: 1.25rem;
+  }
+  @media (min-width: 640px) {
+    .wrap {
+      padding-inline: 2rem;
+    }
+  }
+
+  /* Display type: Archivo, condensed, heavy. Name and big numbers. */
+  .display {
+    font-family: var(--font-display);
+    font-stretch: 75%;
+    font-weight: 800;
+    text-transform: uppercase;
+    line-height: 0.9;
+  }
+
+  /* Mono label: section labels, metadata. */
+  .label {
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    line-height: 1.5;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+  @media (min-width: 640px) {
+    .label {
+      font-size: 0.8125rem;
+    }
+  }
+
+  /* Links: ink text, hairline underline, colour change on hover. */
+  .link {
+    text-decoration-line: underline;
+    text-decoration-thickness: 1px;
+    text-decoration-color: var(--rule);
+    text-underline-offset: 4px;
+    transition:
+      color 150ms,
+      text-decoration-color 150ms;
+  }
+  .link:hover {
+    color: var(--accent);
+    text-decoration-color: var(--accent);
+  }
+
+  /* Quiet text button (mono). */
+  .text-button {
+    font-family: var(--font-mono);
+    font-size: 0.8125rem;
+    letter-spacing: 0.04em;
+    background: none;
+    border: 0;
+    padding: 0;
+    text-decoration-line: underline;
+    text-decoration-thickness: 1px;
+    text-decoration-color: var(--rule);
+    text-underline-offset: 4px;
+    transition:
+      color 150ms,
+      text-decoration-color 150ms;
+  }
+  .text-button:hover {
+    color: var(--accent);
+    text-decoration-color: var(--accent);
+  }
+}

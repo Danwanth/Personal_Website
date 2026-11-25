@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Danwanth Yogesh: AI/ML and software engineer</title>
+    <script>
+      // Applies theme and retro mode before first paint so there is no flash.
+      (function () {
+        var root = document.documentElement;
+        var theme = null;
+        var retro = null;
+        try {
+          theme = localStorage.getItem('dy:theme');
+          retro = localStorage.getItem('dy:retro');
+        } catch (e) {}
+        var dark = theme ? theme === 'dark' : window.matchMedia('(prefers-color-scheme: dark)').matches;
+        if (dark) root.classList.add('dark');
+        if (retro === '1') root.setAttribute('data-retro', '');
+      })();
+    </script>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>
