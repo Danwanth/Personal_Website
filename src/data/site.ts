@@ -124,11 +124,14 @@ export interface Project {
   detail: string
   live?: string
   code?: string
+  /** Shown under "Selected work" on the home page. */
+  featured?: boolean
 }
 
 export const projects: Project[] = [
   {
     title: 'Kards',
+    featured: true,
     meta: '2026',
     stack: ['React', 'TypeScript', 'Supabase', 'OpenRouter'],
     summary: 'An anonymous real-time chat where every live conversation becomes a summary card.',
@@ -139,6 +142,7 @@ export const projects: Project[] = [
   },
   {
     title: 'Gesture whiteboard for dysgraphia',
+    featured: true,
     meta: '2026',
     stack: ['Python', 'TensorFlow', 'MediaPipe', 'React', 'TensorFlow.js'],
     summary: 'Write in the air with your finger; a CNN reads the letters.',
@@ -158,6 +162,7 @@ export const projects: Project[] = [
   },
   {
     title: 'Car price predictor',
+    featured: true,
     meta: '2026',
     stack: ['Python', 'Scikit-learn', 'XGBoost', 'Streamlit'],
     summary: "Estimates a used car's price from its specs.",
