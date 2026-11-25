@@ -4,7 +4,7 @@
   "buildCommand": "pnpm build",
   "outputDirectory": "dist",
   "redirects": [
-    { "source": "/Danwanth Yogesh Resume.pdf", "destination": "/resume.pdf", "permanent": true }
+    { "source": "/Danwanth(.*)Resume.pdf", "destination": "/resume.pdf", "permanent": true }
   ],
   "headers": [
     {
