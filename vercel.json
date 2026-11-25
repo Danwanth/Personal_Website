@@ -3,6 +3,8 @@
   "framework": "vite",
   "buildCommand": "pnpm build",
   "outputDirectory": "dist",
+  "cleanUrls": true,
+  "trailingSlash": false,
   "redirects": [
     { "source": "/Danwanth(.*)Resume.pdf", "destination": "/resume.pdf", "permanent": true }
   ],

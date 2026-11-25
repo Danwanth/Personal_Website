@@ -325,6 +325,7 @@ export const achievementList: AchievementDef[] = [
   { id: 'console', title: 'Developer console', description: 'Gamers know where the console key is.', hint: 'Press the key under Esc.' },
   { id: 'goat', title: 'The GOAT', description: 'Typed his name. Respect.', hint: 'Type the name of the greatest.' },
   { id: 'offside', title: 'Offside', description: "You went somewhere that doesn't exist.", hint: "Try a page that isn't there." },
+  { id: 'tour', title: 'Full tour', description: 'You visited every page on the site.', hint: 'See every page.' },
 ]
 
 export const keepy = {

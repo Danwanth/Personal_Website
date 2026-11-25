@@ -7,6 +7,7 @@ import { ContactBand } from '../components/ContactBand'
 import { Eggs } from '../components/Eggs'
 import { Footer } from '../components/Footer'
 import { Header } from '../components/Header'
+import { VisitTracker } from '../components/VisitTracker'
 import type { PageKey } from '../data/site'
 import { AchievementsProvider } from '../lib/achievements'
 import { devtoolsGreeting } from '../lib/devtools'
@@ -27,6 +28,7 @@ export function mountPage(page: ReactNode, opts: { current?: PageKey } = {}): vo
         <Footer />
         <AchievementsUI />
         <Eggs />
+        {opts.current && <VisitTracker page={opts.current} />}
       </AchievementsProvider>
     </StrictMode>,
   )

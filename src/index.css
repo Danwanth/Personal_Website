@@ -313,3 +313,14 @@ html[data-retro] .kv > div {
 html[data-retro] .kv dd {
   overflow-wrap: anywhere;
 }
+
+/* Retro: Press Start 2P is one em wide per letter. Fit the hero name to its
+   seven-column share on lg+, and keep the card's four stats in a 2 x 2 grid. */
+@media (min-width: 1024px) {
+  html[data-retro] h1.hero-name {
+    font-size: clamp(1.5rem, calc((0.5833 * (min(100vw, 72rem) - 4rem) - 1rem) / 8.8), 8rem);
+  }
+}
+html[data-retro] .stats-grid {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}

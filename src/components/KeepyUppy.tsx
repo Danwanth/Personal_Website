@@ -152,6 +152,15 @@ export function KeepyUppy() {
     }
     window.addEventListener(RESET_EVENT, onReset)
 
+    // /play#game (the console's `play`): scroll to the game and focus it.
+    const focusFromHash = () => {
+      if (window.location.hash !== '#game') return
+      wrap.scrollIntoView({ block: 'center' })
+      canvas.focus({ preventScroll: true })
+    }
+    focusFromHash()
+    window.addEventListener('hashchange', focusFromHash)
+
     const onPointerDown = (e: PointerEvent) => {
       if (!e.isPrimary) return
       if (engine.phase === 'over') {
@@ -182,6 +191,7 @@ export function KeepyUppy() {
       mo.disconnect()
       document.removeEventListener('visibilitychange', onVisibility)
       window.removeEventListener(RESET_EVENT, onReset)
+      window.removeEventListener('hashchange', focusFromHash)
       canvas.removeEventListener('pointerdown', onPointerDown)
       canvas.removeEventListener('keydown', onKeyDown)
       engineRef.current = null

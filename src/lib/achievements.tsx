@@ -13,6 +13,7 @@ import { readStorage, removeStorage, writeStorage } from './storage'
 
 const KEY = 'dy:achievements'
 export const BEST_KEY = 'dy:keepy-best'
+export const VISITED_KEY = 'dy:visited'
 export const RESET_EVENT = 'dy:reset'
 const IDS = new Set(achievementList.map((a) => a.id))
 
@@ -82,6 +83,7 @@ export function AchievementsProvider({ children }: { children: ReactNode }) {
     setUnlocked(new Set())
     removeStorage(KEY)
     removeStorage(BEST_KEY)
+    removeStorage(VISITED_KEY)
     window.dispatchEvent(new Event(RESET_EVENT))
   }, [])
 

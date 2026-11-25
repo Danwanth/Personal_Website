@@ -1,5 +1,5 @@
 import { useCallback, useEffect, useRef, useState, type KeyboardEvent, type ReactNode } from 'react'
-import { interests, profile, projects } from '../data/site'
+import { interests, pages, profile, projects } from '../data/site'
 import { useAchievements } from '../lib/achievements'
 import { toggleRetro } from '../lib/retro'
 import { setTheme } from '../lib/theme'
@@ -22,7 +22,9 @@ const COMMANDS: { name: string; desc: string }[] = [
   { name: 'gamertags', desc: 'find me in a lobby' },
   { name: 'socials', desc: 'email and profiles' },
   { name: 'resume', desc: 'open the resume (PDF)' },
-  { name: 'play', desc: 'jump to the keepy-uppy game' },
+  { name: 'ls', desc: 'list the pages' },
+  { name: 'cd <page>', desc: 'go to a page (cd work, cd ~ for home)' },
+  { name: 'play', desc: 'go to the keepy-uppy game' },
   { name: 'retro', desc: 'toggle retro mode' },
   { name: 'theme light|dark', desc: 'switch the colour theme' },
   { name: 'achievements', desc: 'show your progress' },
@@ -31,9 +33,10 @@ const COMMANDS: { name: string; desc: string }[] = [
 ]
 // Completion candidates: the public commands, with the theme variants spelled out.
 const COMPLETIONS = [
-  ...COMMANDS.map((c) => c.name).filter((n) => !n.startsWith('theme')),
+  ...COMMANDS.map((c) => c.name).filter((n) => !n.startsWith('theme') && !n.startsWith('cd')),
   'theme light',
   'theme dark',
+  ...pages.map((p) => `cd ${p.key}`),
 ]
 
 const NOPE = new Set(['noclip', 'god', 'iddqd'])
@@ -106,6 +109,16 @@ export function Console({
     setLines((l) => [...l, ...added.map((a) => ({ ...a, id: nextId.current++ }))])
   const out = (...parts: Part[]): Omit<Line, 'id'> => ({ kind: 'out', parts })
 
+  // cd <page>: "~", "/" and "home" (or nothing) go to the home page.
+  const cd = (echo: Omit<Line, 'id'>, arg: string) => {
+    const name = arg.replace(/^\/+|\/+$/g, '')
+    const target = name === '' || name === '~' ? pages[0] : pages.find((p) => p.key === name)
+    if (!target) return push(echo, out(`cd: no such page: ${arg}`))
+    push(echo, out(`${target.href}`))
+    close(false)
+    window.location.assign(target.href)
+  }
+
   const run = (raw: string) => {
     const norm = raw.trim().toLowerCase().replace(/\s+/g, ' ')
     const echo: Omit<Line, 'id'> = { kind: 'in', parts: [`${PROMPT} ${raw}`] }
@@ -148,11 +161,17 @@ export function Console({
       case 'resume':
         window.open(profile.resume, '_blank', 'noopener,noreferrer')
         return push(echo, out('Opening resume…'))
+      case 'ls':
+        return push(echo, out(pages.map((p) => p.key).join('  ')))
       case 'play': {
         close(false)
-        const target = document.getElementById('play')
-        target?.scrollIntoView({ block: 'start' })
-        document.querySelector<HTMLElement>('[data-game-canvas]')?.focus({ preventScroll: true })
+        if (window.location.pathname.replace(/\/$/, '') === '/play') {
+          // Already here: scroll to the game and focus it.
+          document.getElementById('game')?.scrollIntoView({ block: 'center' })
+          document.querySelector<HTMLElement>('[data-game-canvas]')?.focus({ preventScroll: true })
+        } else {
+          window.location.assign('/play#game')
+        }
         return
       }
       case 'retro': {
@@ -177,9 +196,11 @@ export function Console({
         return push(echo, out('Cheats are not enabled on this server.'))
       case 'sudo rm -rf /':
         return push(echo, out('Red card. Straight off.'))
-      default:
+      default: {
+        if (norm === 'cd' || norm.startsWith('cd ')) return cd(echo, norm.slice(2).trim())
         if (NOPE.has(norm)) return push(echo, out('Nice try.'))
         return push(echo, out(`command not found: ${raw.trim()}. Try 'help'.`))
+      }
     }
   }
 

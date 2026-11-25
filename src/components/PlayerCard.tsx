@@ -39,7 +39,7 @@ export function PlayerCard() {
         <div className={side(!back)}>
           <div className="flex items-center gap-4 px-4 py-4">
             <p
-              className="display text-[5.5rem] text-accent"
+              className="display shrink-0 text-[5.5rem] text-accent"
               aria-hidden="true"
             >
               {card.number}
@@ -72,7 +72,7 @@ export function PlayerCard() {
             </div>
           </dl>
 
-          <dl className="grid grid-cols-2 gap-x-4 gap-y-5 border-t border-rule px-4 py-4 min-[400px]:grid-cols-4">
+          <dl className="stats-grid grid grid-cols-2 gap-x-4 gap-y-5 border-t border-rule px-4 py-4 min-[400px]:grid-cols-4">
             {stats.map((s) => (
               <div key={s.label}>
                 <dt className="font-mono text-[0.6875rem] uppercase leading-none tracking-[0.08em] text-muted">

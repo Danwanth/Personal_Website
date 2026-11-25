@@ -11,7 +11,7 @@ export function Hero() {
       aria-label="Introduction"
     >
       <div className="min-w-0 lg:col-span-7">
-        <h1 className="display text-[clamp(3.25rem,11vw,7.5rem)] lg:text-[clamp(3.5rem,9.5vw,7.5rem)]">
+        <h1 className="display hero-name text-[clamp(3.25rem,11vw,7.5rem)] lg:text-[clamp(3.5rem,9.5vw,7.5rem)]">
           <span className="block">Danwanth</span>
           <span className="block">Yogesh</span>
         </h1>
