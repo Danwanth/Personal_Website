@@ -94,6 +94,33 @@ export const work = {
         'Built Flask web apps on MySQL, including the schema and multi-user workflows.',
         'Optimised queries and set up Apache/XAMPP environments, which made testing more reliable.',
       ],
+      // Shown in a collapsed "Photos" gallery beside the entry. caption '' = no caption.
+      media: [
+        {
+          kind: 'image',
+          src: '/media/digispoc/python-practice.jpg',
+          alt: 'Python code on a monitor in the office',
+          caption: 'Was testing and learning different types of Python code.',
+        },
+        {
+          kind: 'image',
+          src: '/media/digispoc/apple-vision.jpg',
+          alt: 'An Apple Vision Pro headset and its battery on a desk',
+          caption: 'The office had an Apple Vision Pro, which was very cool to use.',
+        },
+        {
+          kind: 'image',
+          src: '/media/digispoc/metro.jpg',
+          alt: 'Mirror selfie in a metro station',
+          caption: '',
+        },
+        {
+          kind: 'video',
+          src: '/media/digispoc/first-flask-app.mp4',
+          alt: 'Screen recording of an early Flask application',
+          caption: 'Early steps of building my first Flask applications.',
+        },
+      ],
     },
   ],
   education: {
