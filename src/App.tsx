@@ -1,5 +1,6 @@
 import { AchievementsUI } from './components/AchievementsUI'
 import { Contact } from './components/Contact'
+import { Eggs } from './components/Eggs'
 import { Footer } from './components/Footer'
 import { Header } from './components/Header'
 import { Hero } from './components/Hero'
@@ -26,6 +27,7 @@ export function App() {
       </main>
       <Footer />
       <AchievementsUI />
+      <Eggs />
     </>
   )
 }

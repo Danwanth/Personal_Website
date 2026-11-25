@@ -1,4 +1,6 @@
+import { useEffect } from 'react'
 import { notFound } from '../data/site'
+import { useAchievements } from '../lib/achievements'
 import { Footer } from './Footer'
 import { Header } from './Header'
 
@@ -27,7 +29,10 @@ function OffsideDiagram() {
 }
 
 export function NotFound() {
-  // Later builder: unlock the `offside` achievement here, on mount.
+  const { unlock } = useAchievements()
+  useEffect(() => {
+    unlock('offside')
+  }, [unlock])
   return (
     <>
       <Header base="/" />

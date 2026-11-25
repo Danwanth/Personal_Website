@@ -28,7 +28,7 @@
 [data-retro] {
   --paper: #9bbc0f;
   --ink: #0f380f;
-  --muted: #306230;
+  --muted: #1c4a1c; /* darker than the spec (#306230) so small text passes AA on the LCD green */
   --rule: #8bac0f;
   --accent: #0f380f;
   --accent-ink: #9bbc0f;
@@ -217,4 +217,50 @@
 
 dialog::backdrop {
   background: color-mix(in srgb, var(--paper) 78%, transparent);
+}
+
+/* Retro mode (Konami): handheld-LCD look. Palette tokens are defined above. */
+html[data-retro] {
+  font-size: 12px;
+}
+html[data-retro] body {
+  line-height: 1.8;
+  padding-top: 2.75rem; /* room for the fixed "Exit retro mode" button */
+}
+html[data-retro] *,
+html[data-retro] ::before,
+html[data-retro] ::after {
+  font-family: "Press Start 2P", ui-monospace, Menlo, Consolas, monospace !important;
+  font-stretch: 100% !important;
+  border-radius: 0 !important;
+  text-shadow: none;
+}
+/* Press Start 2P is 1em wide per letter: keep the big names inside the column. */
+html[data-retro] h1.display {
+  font-size: clamp(1.5rem, calc((100vw - 3.5rem) / 8.8), 8rem);
+  line-height: 1.1;
+}
+html[data-retro] .label,
+html[data-retro] .text-button {
+  font-size: 0.75rem;
+  letter-spacing: 0;
+}
+html[data-retro] a,
+html[data-retro] p {
+  overflow-wrap: anywhere;
+}
+/* The one allowed gradient on the site: faint scanlines over everything. */
+html[data-retro] body::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: 90;
+  pointer-events: none;
+  background: repeating-linear-gradient(
+    to bottom,
+    transparent 0,
+    transparent 2px,
+    color-mix(in srgb, var(--ink) 6%, transparent) 2px,
+    color-mix(in srgb, var(--ink) 6%, transparent) 3px
+  );
 }
