@@ -142,7 +142,7 @@ export const work = {
           kind: 'image',
           src: '/media/digispoc/metro.jpg',
           alt: 'Mirror selfie in a metro station',
-          caption: '',
+          caption: 'Me waiting for my metro.',
         },
         {
           kind: 'video',
