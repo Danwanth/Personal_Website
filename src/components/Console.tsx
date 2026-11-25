@@ -116,10 +116,8 @@ export function Console({
         return setLines([])
       case 'exit':
         return close()
-      case 'help': {
-        const width = Math.max(...COMMANDS.map((c) => c.name.length)) + 2
-        return push(echo, ...COMMANDS.map((c) => out(`${c.name.padEnd(width)}${c.desc}`)))
-      }
+      case 'help':
+        return push(echo, ...COMMANDS.map((c) => out(`${c.name}: ${c.desc}`)))
       case 'whoami':
         return push(
           echo,

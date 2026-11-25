@@ -207,7 +207,8 @@ export function KeepyUppy() {
       <div className="pointer-events-none absolute inset-0">
         <div className="absolute left-4 top-3 sm:left-5 sm:top-4">
           <p className="flex items-baseline gap-3">
-            <span className="display text-[3.5rem] sm:text-[4.5rem]" aria-label={`Score ${score}`}>
+            <span className="display text-[3.5rem] sm:text-[4.5rem]">
+              <span className="sr-only">Score </span>
               {score}
             </span>
             <span className="label">Best {best}</span>
@@ -223,7 +224,7 @@ export function KeepyUppy() {
           </div>
         )}
         {phase === 'over' && (
-          <div className="absolute inset-x-0 top-[30%] px-4 text-center">
+          <div className="absolute inset-x-0 top-[36%] px-4 text-center">
             <p className="font-mono text-sm">
               Dropped it. {score} {score === 1 ? 'touch' : 'touches'}.
             </p>
