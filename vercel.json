@@ -3,6 +3,9 @@
   "framework": "vite",
   "buildCommand": "pnpm build",
   "outputDirectory": "dist",
+  "redirects": [
+    { "source": "/Danwanth Yogesh Resume.pdf", "destination": "/resume.pdf", "permanent": true }
+  ],
   "headers": [
     {
       "source": "/assets/(.*)",
