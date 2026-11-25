@@ -222,9 +222,6 @@ export const contact = {
 export const footer = {
   credit: '© 2026 Danwanth Yogesh · React, TypeScript, Tailwind · Hosted on Vercel',
   hint: 'Some things on this page are hidden.',
-  // Placeholder until the achievements system lands in M5.
-  achievementsCount: 0,
-  achievementsTotal: 6,
 } as const
 
 export const notFound = {
@@ -233,3 +230,46 @@ export const notFound = {
   text: 'We checked the lines. The page you’re looking for was in an offside position.',
   back: 'Back to the halfway line',
 } as const
+
+export interface AchievementDef {
+  id: string
+  title: string
+  description: string
+  hint: string
+}
+
+export const achievementList: AchievementDef[] = [
+  { id: 'first-touch', title: 'First touch', description: 'You kicked the ball.', hint: "There's a ball on this page." },
+  { id: 'number-ten', title: 'Number 10', description: 'Ten keepy-uppies in a row.', hint: 'Get to double figures.' },
+  { id: 'konami', title: 'Up, up, down, down', description: 'The old code still works. Welcome to retro mode.', hint: 'Some codes never expire.' },
+  { id: 'console', title: 'Developer console', description: 'Gamers know where the console key is.', hint: 'Press the key under Esc.' },
+  { id: 'goat', title: 'The GOAT', description: 'Typed his name. Respect.', hint: 'Type the name of the greatest.' },
+  { id: 'offside', title: 'Offside', description: "You went somewhere that doesn't exist.", hint: "Try a page that isn't there." },
+]
+
+export const keepy = {
+  idle: 'Click the ball to start',
+  idleKeyboard: 'or focus this box and press Space',
+  milestones: {
+    1: "And we're off.",
+    5: 'Five. Warming up.',
+    10: 'Ten. A proper number 10 performance.',
+    25: 'Twenty-five. The crowd is on its feet.',
+    50: "Fifty. Okay, you've done this before.",
+    100: 'A hundred. Go outside.',
+  } as Record<number, string>,
+  newBest: 'New personal best.',
+  gameOver: [
+    'Gravity wins again.',
+    'VAR confirms: it touched the ground.',
+    'The ball has left the chat.',
+    'Unlucky. Go again.',
+  ],
+  label:
+    'Keepy-uppy game. Click or tap the ball to kick it up. With the keyboard, press Space or Enter when the ball is low and falling.',
+}
+
+export const eggs = {
+  siu: 'Wrong club. Wrong player.',
+  devtools: ['Hey, you opened DevTools.', 'Try pressing ~ on the page, or remember an old cheat code.'],
+}
