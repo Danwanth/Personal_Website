@@ -14,12 +14,31 @@ export const profile = {
   timeZoneLabel: 'IST',
 } as const
 
-export const nav = [
-  { label: 'Work', href: '#work' },
-  { label: 'Projects', href: '#projects' },
-  { label: 'Play', href: '#play' },
-  { label: 'Contact', href: '#contact' },
-] as const
+export type PageKey = 'home' | 'work' | 'projects' | 'skills' | 'play' | 'about'
+
+// The six real pages, in nav order (home is the logo). `hint` is the static mono
+// hint on the home index; the work, projects and play hints are computed live.
+export const pages: { key: PageKey; label: string; href: string; blurb: string; hint?: string }[] = [
+  { key: 'home', label: 'Home', href: '/', blurb: '' },
+  { key: 'work', label: 'Work', href: '/work', blurb: 'Internships, education and awards.' },
+  {
+    key: 'projects',
+    label: 'Projects',
+    href: '/projects',
+    blurb: 'Real-time chat, a gesture whiteboard, models that hit 97%.',
+  },
+  { key: 'skills', label: 'Skills', href: '/skills', blurb: 'My stack, lined up as a 4-3-3.', hint: 'Starting XI' },
+  {
+    key: 'play',
+    label: 'Play',
+    href: '/play',
+    blurb: 'Keepy-uppy, plus achievements hidden around the site.',
+  },
+  { key: 'about', label: 'About', href: '/about', blurb: 'Barça, games and bikes.', hint: 'Off the pitch' },
+]
+
+/** Header nav: every page except home. */
+export const nav = pages.filter((p) => p.key !== 'home')
 
 export const hero = {
   lead: 'I build machine learning models and the software around them.',
@@ -221,7 +240,7 @@ export const contact = {
 
 export const footer = {
   credit: '© 2026 Danwanth Yogesh · React, TypeScript, Tailwind · Hosted on Vercel',
-  hint: 'Some things on this page are hidden.',
+  hint: 'Some things on this site are hidden.',
 } as const
 
 export const notFound = {

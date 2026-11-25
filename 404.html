@@ -6,27 +6,9 @@
     <title>Offside: Danwanth Yogesh</title>
     <meta name="robots" content="noindex" />
     <meta name="description" content="This page does not exist." />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <meta name="theme-color" content="#F3EFE6" media="(prefers-color-scheme: light)" />
-    <meta name="theme-color" content="#121110" media="(prefers-color-scheme: dark)" />
-    <script>
-      // Applies theme and retro mode before first paint so there is no flash.
-      (function () {
-        var root = document.documentElement;
-        var theme = null;
-        var retro = null;
-        try {
-          theme = localStorage.getItem('dy:theme');
-          retro = localStorage.getItem('dy:retro');
-        } catch (e) {}
-        var dark = theme ? theme === 'dark' : window.matchMedia('(prefers-color-scheme: dark)').matches;
-        if (dark) root.classList.add('dark');
-        if (retro === '1') root.setAttribute('data-retro', '');
-      })();
-    </script>
   </head>
   <body>
     <div id="root"></div>
-    <script type="module" src="/src/notfound.tsx"></script>
+    <script type="module" src="/src/pages/notfound.tsx"></script>
   </body>
 </html>

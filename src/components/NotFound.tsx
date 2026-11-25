@@ -1,8 +1,6 @@
 import { useEffect } from 'react'
 import { notFound } from '../data/site'
 import { useAchievements } from '../lib/achievements'
-import { Footer } from './Footer'
-import { Header } from './Header'
 
 // A strip of pitch with two offside lines. Ink = last defender, accent = the
 // attacker, who is slightly past the line. Colours come from the tokens.
@@ -34,24 +32,20 @@ export function NotFound() {
     unlock('offside')
   }, [unlock])
   return (
-    <>
-      <Header base="/" />
-      <main id="main" className="wrap pb-16 pt-12 lg:pb-24 lg:pt-20">
-        <p className="label">{notFound.label}</p>
-        <h1 className="display mt-3 text-[clamp(3.25rem,15vw,10rem)]">{notFound.heading}</h1>
-        <p className="mt-8 max-w-[52ch] text-[1.375rem] leading-snug">{notFound.text}</p>
-        <OffsideDiagram />
-        <p className="mt-10">
-          <a
-            href="/"
-            className="inline-block border border-ink px-4 py-2 font-mono text-sm transition-colors duration-150 hover:border-accent hover:text-accent"
-          >
-            {notFound.back}
-            <span aria-hidden="true"> ↗</span>
-          </a>
-        </p>
-      </main>
-      <Footer />
-    </>
+    <div className="wrap pb-16 pt-12 lg:pb-24 lg:pt-20">
+      <p className="label">{notFound.label}</p>
+      <h1 className="display mt-3 text-[clamp(3.25rem,15vw,10rem)]">{notFound.heading}</h1>
+      <p className="mt-8 max-w-[52ch] text-[1.375rem] leading-snug">{notFound.text}</p>
+      <OffsideDiagram />
+      <p className="mt-10">
+        <a
+          href="/"
+          className="inline-block border border-ink px-4 py-2 font-mono text-sm transition-colors duration-150 hover:border-accent hover:text-accent"
+        >
+          {notFound.back}
+          <span aria-hidden="true"> ↗</span>
+        </a>
+      </p>
+    </div>
   )
 }
